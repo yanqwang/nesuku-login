@@ -4,18 +4,22 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
+import { RegisterPage } from '../pages/register/register';
+
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     HelloIonicPage,
-    ItemDetailsPage,
-    ListPage
+    RegisterPage
+    //ItemDetailsPage,
+
   ],
   imports: [
     BrowserModule,
@@ -24,14 +28,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     HelloIonicPage,
-    ItemDetailsPage,
-    ListPage
+    RegisterPage
+    //ItemDetailsPage,
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider
   ]
 })
 export class AppModule {}
